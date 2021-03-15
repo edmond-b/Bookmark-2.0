@@ -1,0 +1,1 @@
+Notes: psql -U postgres

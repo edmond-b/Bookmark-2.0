@@ -1,3 +1,6 @@
+require_relative './setup_test_database'
+
+ENV['ENVIRONMENT'] = 'test'
 ENV['RACK ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -9,6 +12,10 @@ require 'rspec'
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
+  config.before(:each) do
+      setup_test_database
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

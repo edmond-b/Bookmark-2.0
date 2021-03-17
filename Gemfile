@@ -3,6 +3,7 @@ gem 'sinatra'
 gem 'capybara', group: :test
 gem 'selenium-webdriver'
 gem 'pg'
+gem 'sinatra-flash'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 

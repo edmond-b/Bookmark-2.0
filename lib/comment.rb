@@ -1,3 +1,5 @@
+require_relative 'database_connection'
+
 class Comment
   attr_reader :id, :text, :bookmark_id
 

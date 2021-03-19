@@ -6,12 +6,14 @@ require 'sinatra/flash'
 require './lib/comment'
 require './lib/tag'
 require './lib/bookmark_tag'
+require './lib/user'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
   get '/bookmarks' do
+    @user = User.find(session[:user_id])
     @bookmarks = Bookmark.all
     erb(:index)
   end
@@ -64,6 +66,16 @@ class BookmarkManager < Sinatra::Base
   get '/tags/:id/bookmarks' do
     @tag = Tag.find(id: params['id'])
     erb(:tags)
+  end
+
+  get '/users/new' do
+    erb(:user_new)
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/bookmarks')
   end
 
   run! if app_file == $0

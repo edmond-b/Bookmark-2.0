@@ -4,6 +4,7 @@ gem 'capybara', group: :test
 gem 'selenium-webdriver'
 gem 'pg'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 

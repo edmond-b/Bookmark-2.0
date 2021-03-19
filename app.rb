@@ -52,7 +52,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks/:id/tag/new' do
     @bookmark_id = params[:id]
-    erb(:tag)
+    erb(:new_tag)
   end
 
   post '/bookmarks/:id/tag' do
@@ -61,5 +61,10 @@ class BookmarkManager < Sinatra::Base
     redirect('/bookmarks')
   end
 
-  run! if app_file ==$0
+  get '/tags/:id/bookmarks' do
+    @tag = Tag.find(id: params['id'])
+    erb(:tags)
+  end
+
+  run! if app_file == $0
 end

@@ -3,64 +3,75 @@
   <head>
     <meta charset="utf-8">
     <title>Bookmarks</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <h1>Bookmark Manager</h1>
-    <form action="/session/destroy" method="post">
-      <input type="submit" value="Sign Out">
+    <nav>
+      <h1>Bookmark Manager</h1>
+    </nav>
+    <% unless @user %>
+    <form action="/session/new" method="get">
+      <input type="submit" value="Sign In">
     </form>
-    <% if @user %>
-      <h2>Welcome, <%= @user.email %>!</h2>
+    <form action="users/new" method="get">
+      <input type="submit" value="Sign Up">
+    </form>
     <% end %>
-    <h2><%= flash[:notice] %></h2>
-    <ul>
-      <% @bookmarks.each do |bookmark| %>
-        <li class="bookmark" id="bookmark-<%= bookmark.id %>">
-          <a href="<%= bookmark.url %>" target="_blank">
-            <h2><%= bookmark.title %></h2>
-          </a>
-          <form action="bookmarks/<%= bookmark.id %>/comments/new" method="get">
-            <input type="submit" value="Add Comment">
-          </form>
-          <form action="bookmarks/<%= bookmark.id %>/edit" method="get">
-            <input type="submit" value="Edit">
-          </form>
-          <form action="bookmarks/<%= bookmark.id %>" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete">
-          </form>
-          <form action="/bookmarks/<%= bookmark.id %>/tag/new" method="get">
-            <input type="submit" value="Add Tag" />
-          </form>
-          <% if bookmark.comments.length > 0 %>
-          <div>
-            <h3>Comments</h3>
-            <ul>
-              <% bookmark.comments.each do |comment| %>
-                <li><%= comment.text %></li>
-              <% end %>
-            </ul>
-          </div>
-          <% end %>
-          <% if bookmark.tags.length > 0 %>
-          <div>
-            <h3>Tags</h3>
-            <ul>
-              <% bookmark.tags.each do |tag| %>
-              <li>
-                <a href="/tags/<%= tag.id %>/bookmarks">
-                  <%= tag.content %>
-                </a>
-              </li>
-              <% end %>
-            </ul>
-          </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-    <form class="new "action="bookmark/new" method="get">
-      <input type="submit" value="New">
-    </form>
+    <% if @user %>
+      <form action="/session/destroy" method="post">
+        <input type="submit" value="Sign Out">
+      </form>
+      <h2>Welcome, <%= @user.email %>!</h2>
+      <h2><%= flash[:notice] %></h2>
+      <ul>
+        <% @bookmarks.each do |bookmark| %>
+          <li class="bookmark" id="bookmark-<%= bookmark.id %>">
+            <a href="<%= bookmark.url %>" target="_blank">
+              <h2><%= bookmark.title %></h2>
+            </a>
+            <form action="bookmarks/<%= bookmark.id %>/comments/new" method="get">
+              <input type="submit" value="Add Comment">
+            </form>
+            <form action="bookmarks/<%= bookmark.id %>/edit" method="get">
+              <input type="submit" value="Edit">
+            </form>
+            <form action="bookmarks/<%= bookmark.id %>" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete">
+            </form>
+            <form action="/bookmarks/<%= bookmark.id %>/tag/new" method="get">
+              <input type="submit" value="Add Tag" />
+            </form>
+            <% if bookmark.comments.length > 0 %>
+            <div>
+              <h3>Comments</h3>
+              <ul>
+                <% bookmark.comments.each do |comment| %>
+                  <li><%= comment.text %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+            <% if bookmark.tags.length > 0 %>
+            <div>
+              <h3>Tags</h3>
+              <ul>
+                <% bookmark.tags.each do |tag| %>
+                <li>
+                  <a href="/tags/<%= tag.id %>/bookmarks">
+                    <%= tag.content %>
+                  </a>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <form class="new "action="bookmark/new" method="get">
+        <input type="submit" value="New">
+      </form>
+    <% end %>
   </body>
 </html>

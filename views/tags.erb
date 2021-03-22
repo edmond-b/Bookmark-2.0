@@ -1,9 +1,20 @@
-<ul>
-  <% @tag.bookmarks.each do |bookmark| %>
-  <li>
-    <a href="<%= bookmark.url %>" target="_blank">
-      <%= bookmark.title %>
-    </a>
-  </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>View Tags</title>
+  </head>
+  <body>
+    <h1>View Related Bookmarks</h1>
+
+    <ul>
+      <% @tag.bookmarks.each do |bookmark| %>
+      <li>
+        <a href="<%= bookmark.url %>" target="_blank">
+          <%= bookmark.title %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

@@ -1,4 +1,15 @@
-<form action="/bookmarks/<%= @bookmark_id %>/tag" method="POST">
-  <input name="tag" type="text" />
-  <input value="Submit" type="submit" />
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Tag</title>
+  </head>
+  <body>
+    <h1>New Tag</h1>
+
+    <form action="/bookmarks/<%= @bookmark_id %>/tag" method="POST">
+      <input name="tag" type="text" />
+      <input value="Submit" type="submit" />
+    </form>
+  </body>
+</html>

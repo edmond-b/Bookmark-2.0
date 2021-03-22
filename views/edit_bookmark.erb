@@ -5,7 +5,7 @@
     <title>Edit</title>
   </head>
   <body>
-    <h1>Edit</h1>
+    <h1>Edit Bookmark</h1>
     <form action="/bookmarks/<%= @bookmark.id %>" method="post">
       <input type="hidden" name="_method" value="PATCH">
       <input type="text" name="url" value="<%= @bookmark.url %>">

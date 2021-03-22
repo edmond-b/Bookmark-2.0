@@ -12,6 +12,10 @@ class BookmarkManager < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
+  get '/' do
+    redirect('/bookmarks')
+  end
+
   get '/bookmarks' do
     @user = User.find(session[:user_id])
     @bookmarks = Bookmark.all

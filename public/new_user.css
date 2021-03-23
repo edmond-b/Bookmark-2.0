@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  background-color: lightgrey;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.main {
+  align-self: center;
+  justify-self: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}

@@ -3,14 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>New User</title>
+    <link rel="stylesheet" href="../new_user.css">
   </head>
   <body>
-    <h1>Sign Up</h1>
-    
-    <form action="/users" method="post">
-      <input type="email" name="email">
-      <input type="password" name="password">
-      <input type="submit" value="Submit">
-    </form>
+    <nav class="nav">
+      <h1>Bookmark Manager</h1>
+    </nav>
+
+    <main class="main">
+      <h1>Sign Up</h1>
+
+      <form action="/users" method="post">
+        <label for="email">E-mail</label>
+        <input type="email" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <input type="submit" value="Submit">
+      </form>
+    </main>
+
+    <footer class="footer">
+      <h2>Footer</h2>
+    </footer>
   </body>
 </html>

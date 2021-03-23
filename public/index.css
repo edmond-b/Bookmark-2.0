@@ -2,13 +2,132 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-nav {
-  background-color: black;
+body, html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  background-color: lightgrey;
+}
+
+input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-left: 10px;
   color: white;
 }
 
 ul {
   list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: orange;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.sign-buttons {
+  justify-self: end;
+  display: flex;
+}
+
+.sign-in {
+  margin-right: 10px;
+  background-color: green;
+}
+
+.sign-up {
+  float: right;
+  margin-left: 10px;
+  background-color: green;
+}
+
+.sign-out-button {
+  background-color: green;
+}
+
+.welcome {
+  background-color: green;
+  color: white;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.new-container {
+  display: inline;
+  margin: 10px auto;
+}
+
+.new-button {
+  background-color: orange;
+}
+
+.main {
+  border-radius: 5px;
+  background-color: white;
+  justify-self: center;
+  align-self: center;
+  padding: 100px 100px;
+}
+
+.bookmark-container {
+  justify-self: center;
+  background-color: white;
+  width: 80%;
+  border: 2px solid black;
+}
+
+.bookmark {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: lightgrey;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bookmark-buttons {
+  justify-self: end;
+  display: flex;
+}
+
+.add-comment-button {
+  background-color: green;
+}
+
+.add-tag-button {
+  background-color: green;
+}
+
+.edit-button {
+  background-color: orange;
+}
+
+.delete-button {
+  background-color: red;
+}
+
+.footer {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
 }
